@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { invitation } from "./config.js";
 import Header from "./components/Header.jsx";
 import Intro from "./components/Intro.jsx";
@@ -10,6 +10,10 @@ export default function App() {
   const [step, setStep] = useState(-1);
   const [answers, setAnswers] = useState([]);
   const total = invitation.questions.length;
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+  }, [step]);
 
   const restart = () => {
     setAnswers([]);

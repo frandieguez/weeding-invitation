@@ -27,6 +27,7 @@ body {
 
 #root {
   min-height: 100vh;
+  min-height: 100dvh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -120,6 +121,8 @@ h1, h2 {
   border: 1px solid transparent;
   cursor: pointer;
   transition: background 0.2s, transform 0.2s;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
 .btn-primary { background: var(--wine); color: #fff; }
 .btn-primary:hover { background: var(--wine-hover); transform: scale(1.04); }
@@ -127,9 +130,11 @@ h1, h2 {
 .btn-ghost:hover { background: #f2eee7; }
 
 .no-btn.fleeing {
-  position: absolute;
+  position: fixed;
+  z-index: 10;
   transition: left 0.25s ease, top 0.25s ease;
 }
+.no-placeholder { visibility: hidden; }
 
 /* ---------- Opciones ---------- */
 .options { display: flex; flex-direction: column; gap: 8px; text-align: left; }
@@ -144,8 +149,13 @@ h1, h2 {
   cursor: pointer;
   color: var(--ink);
   transition: background 0.15s, border-color 0.15s;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
 }
-.option:hover { background: #ece7de; border-color: #d6cec1; }
+@media (hover: hover) {
+  .option:hover { background: #ece7de; border-color: #d6cec1; }
+}
+.option:active { background: #ece7de; border-color: #d6cec1; }
 .option.picked { background: #e3dcd0; }
 
 /* ---------- Veredicto ---------- */
@@ -195,4 +205,17 @@ h1, h2 {
 
 @media (prefers-reduced-motion: reduce) {
   .card, .confetti { animation: none; }
+}
+
+/* ---------- Móvil ---------- */
+@media (max-width: 480px) {
+  .top { padding-top: 24px; }
+  .brand { font-size: 11px; letter-spacing: 0.28em; }
+  #stage { padding: 24px 12px 48px; place-items: start center; }
+  .card { padding: 24px 18px 26px; }
+  h1, h2 { font-size: 24px; }
+  .big { font-size: 30px; }
+  .option { font-size: 14px; padding: 14px; }
+  .verdict .actions { flex-direction: column; }
+  .verdict .actions .btn { width: 100%; }
 }
