@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
 import { createPortal } from "react-dom";
+import WhenWhere from "./WhenWhere.jsx";
 
 const MARGIN = 12;
 
@@ -9,7 +10,7 @@ const overlaps = (a, b, pad = 16) =>
   a.top < b.bottom + pad &&
   a.bottom > b.top - pad;
 
-export default function Intro({ config, onYes }) {
+export default function Intro({ config, details, onYes }) {
   const noRef = useRef(null);
   const yesRef = useRef(null);
   const [noPos, setNoPos] = useState(null);
@@ -56,6 +57,7 @@ export default function Intro({ config, onYes }) {
       <div className="icon">↓</div>
       <p className="eyebrow">{config.eyebrow}</p>
       <h1>{config.question}</h1>
+      <WhenWhere date={details.date} place={details.place} />
       <div className="actions">
         <button ref={yesRef} className="btn btn-primary" type="button" onClick={onYes}>
           {config.yes}

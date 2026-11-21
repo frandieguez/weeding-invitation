@@ -27,10 +27,10 @@ export default function App() {
 
   let labels, card;
   if (step === -1) {
-    labels = ["RSVP", "Sé honesta"];
-    card = <Intro config={invitation.intro} onYes={() => setStep(0)} />;
+    labels = ["RSVP", invitation.labels.honest];
+    card = <Intro config={invitation.intro} details={invitation} onYes={() => setStep(0)} />;
   } else if (step < total) {
-    labels = [`Pregunta ${step + 1}`, "Sé honesta"];
+    labels = [`Pregunta ${step + 1}/${total}`, invitation.labels.honest];
     card = <Question question={invitation.questions[step]} onAnswer={answer} />;
   } else {
     labels = ["El veredicto", "Respuesta final"];
@@ -39,7 +39,7 @@ export default function App() {
 
   return (
     <>
-      <Header left={labels[0]} right={labels[1]} />
+      <Header couple={invitation.couple} left={labels[0]} right={labels[1]} />
       <main id="stage">
         {/* key fuerza el remontaje para relanzar la animación de entrada */}
         <div key={step} className="card-wrap">

@@ -1,23 +1,31 @@
 // Edita aquí textos, preguntas y qué respuestas "suspenden".
-// Una opción con `fail` hace que la invitada quede desinvitada al final.
+// Una opción con `fail` hace que el invitado se quede sin invitación al final.
 export const invitation = {
+  couple: "David & Sara",
+  // Rellena fecha y lugar cuando los tengáis; si están vacíos no se muestran.
+  date: "",
+  place: "",
+
+  labels: {
+    honest: "Con sinceridad",
+  },
   intro: {
-    eyebrow: "Reserva la fecha",
-    question: "¿Quieres venir a mi boda? 💍",
+    eyebrow: "David & Sara se casan",
+    question: "¿Quieres venir a nuestra boda? 💍",
     yes: "Sí",
     no: "No",
   },
   questions: [
     {
-      title: "¿Qué tan emocionada estás por mi boda? 💌",
+      title: "¿Cuántas ganas tienes de nuestra boda? 💌",
       options: [
-        { text: "¡MUCHÍSIMO!" },
+        { text: "¡MUCHÍSIMAS!" },
         { text: "No puedo esperar" },
         { text: "Lo que más me emociona es la comida" },
         { text: "¿Barra libre?" },
         {
-          text: "Se me había olvidado que te casabas",
-          fail: { tag: "Memoria de pez", note: "¿¿Olvidado?? ¿¿Mi boda??" },
+          text: "Se me había olvidado que os casabais",
+          fail: { tag: "Memoria de pez", note: "¿¿Olvidado?? ¿¿Nuestra boda??" },
         },
       ],
     },
@@ -28,7 +36,10 @@ export const invitation = {
         { text: "Voy a llorar a mares" },
         { text: "Intentaré contenerme" },
         { text: "Solo si lloran los demás" },
-        { text: "No ❤️", fail: { tag: "Corazón de piedra", note: "¿¿Ni una lágrima?? ¿¿En MI boda??" } },
+        {
+          text: "No ❤️",
+          fail: { tag: "Corazón de piedra", note: "¿¿Ni una lágrima?? ¿¿Por David y Sara??" },
+        },
       ],
     },
     {
@@ -42,29 +53,45 @@ export const invitation = {
       ],
     },
     {
-      title: "¿De qué color será el vestido que vas a llevar a mi boda? 👗",
+      title: "¿De qué color vas a ir vestido/a a nuestra boda? 👗",
       options: [
-        { text: "Blanco", fail: { tag: "Vestido blanco", note: "¿¿Blanco?? ¿¿En MI boda??" } },
+        {
+          text: "Blanco",
+          fail: { tag: "Vestido blanco", note: "¿¿Blanco?? ¿¿Le quieres robar el protagonismo a Sara??" },
+        },
         { text: "Rojo" },
         { text: "Negro" },
         { text: "Rosa fuerte" },
-        { text: "El que me digas" },
+        { text: "El que me digáis" },
+      ],
+    },
+    {
+      title: "¿Qué vas a hacer cuando suene la primera canción? 🕺",
+      options: [
+        { text: "Darlo todo en la pista" },
+        { text: "Grabar a David y Sara con el móvil" },
+        { text: "Esperar a que haya más gente bailando" },
+        { text: "Ir a por otra copa" },
+        {
+          text: "Pedirle al DJ que la cambie",
+          fail: { tag: "Saboteador musical", note: "¿¿Cambiar NUESTRA canción??" },
+        },
       ],
     },
   ],
   fail: {
     title: "Has fallado.",
-    subtitle: "Estás desinvitada.",
+    subtitle: "Te quedas sin invitación.",
     badge: "Invitación: cancelada",
     retry: "Intentar de nuevo",
   },
   success: {
-    tag: "Aprobada",
+    tag: "Aprobado",
     title: "¡Enhorabuena!",
-    subtitle: "Sigues invitada.",
-    note: "Nos vemos en el altar. Trae pañuelos.",
+    subtitle: "Sigues invitado/a.",
+    note: "David y Sara te esperan en el altar. Trae pañuelos.",
     badge: "Invitación: confirmada",
     retry: "Repetir",
   },
-  signature: "Con cariño, y estándares sospechosamente altos",
+  signature: "Con cariño, David & Sara",
 };

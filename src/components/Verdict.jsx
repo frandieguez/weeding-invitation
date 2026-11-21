@@ -1,4 +1,5 @@
 import Confetti from "./Confetti.jsx";
+import WhenWhere from "./WhenWhere.jsx";
 
 export default function Verdict({ answers, config, onRestart }) {
   const failed = answers.find((a) => a.fail);
@@ -17,6 +18,7 @@ export default function Verdict({ answers, config, onRestart }) {
       <h2 className="big">{v.title}</h2>
       <p className="subtitle">{v.subtitle}</p>
       <p className="note">{v.note}</p>
+      {!failed && <WhenWhere date={config.date} place={config.place} />}
       <div className="actions">
         <span className="btn badge">
           {mark} {v.badge}
