@@ -1,0 +1,196 @@
+:root {
+  --bg: #efe9df;
+  --card: #f8f5ef;
+  --line: #e4ddd1;
+  --ink: #2b2522;
+  --muted: #8a817a;
+  --wine: #7a1f2b;
+  --wine-hover: #5f1520;
+  --pink: #d9607a;
+  --pink-soft: #f1d5dc;
+  --green: #4f7a4a;
+  --green-soft: #d8e6d3;
+  --serif: "Cormorant Garamond", Georgia, serif;
+  --sans: "Jost", system-ui, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+/* ---------- Cabecera ---------- */
+.top {
+  width: min(720px, 100% - 32px);
+  padding-top: 40px;
+  text-align: center;
+}
+.brand {
+  margin: 0 0 18px;
+  font-size: 12px;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+}
+.labels {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- Tarjeta ---------- */
+#stage {
+  flex: 1;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  padding: 40px 16px 80px;
+}
+#stage > * { grid-area: 1 / 1; }
+
+.card {
+  position: relative;
+  width: min(420px, 100%);
+  background: var(--card);
+  border-radius: 14px;
+  padding: 28px 26px 30px;
+  text-align: center;
+  box-shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 20px 50px -20px rgb(60 40 30 / 0.25);
+}
+.card.enter { animation: enter 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+.card.leave { animation: leave 0.25s ease both; }
+@keyframes enter { from { opacity: 0; transform: translateY(14px) scale(0.98); } }
+@keyframes leave { to { opacity: 0; transform: translateY(-10px) scale(0.98); } }
+
+.icon {
+  width: 30px; height: 30px;
+  margin: 0 auto 14px;
+  display: grid; place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  font-size: 14px;
+  color: var(--muted);
+}
+.eyebrow {
+  margin: 0 0 8px;
+  font-size: 9px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+h1, h2 {
+  font-family: var(--serif);
+  font-weight: 500;
+  font-size: 26px;
+  line-height: 1.15;
+  margin: 0 0 18px;
+}
+
+/* ---------- Botones ---------- */
+.actions {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  min-height: 44px;
+}
+.btn {
+  font-family: var(--sans);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  border-radius: 999px;
+  padding: 10px 22px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+.btn-primary { background: var(--wine); color: #fff; }
+.btn-primary:hover { background: var(--wine-hover); transform: scale(1.04); }
+.btn-ghost { background: #fff; border-color: var(--line); color: var(--ink); }
+.btn-ghost:hover { background: #f2eee7; }
+
+.no-btn.fleeing {
+  position: absolute;
+  transition: left 0.25s ease, top 0.25s ease;
+}
+
+/* ---------- Opciones ---------- */
+.options { display: flex; flex-direction: column; gap: 8px; text-align: left; }
+.option {
+  font-family: var(--sans);
+  font-size: 13px;
+  text-align: left;
+  padding: 12px 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  cursor: pointer;
+  color: var(--ink);
+  transition: background 0.15s, border-color 0.15s;
+}
+.option:hover { background: #ece7de; border-color: #d6cec1; }
+.option.picked { background: #e3dcd0; }
+
+/* ---------- Veredicto ---------- */
+.verdict { width: min(480px, 100%); }
+.icon.round { width: 40px; height: 40px; border: none; font-size: 16px; }
+.is-fail .icon.round { background: var(--pink-soft); color: var(--pink); }
+.is-ok .icon.round { background: var(--green-soft); color: var(--green); }
+
+.tag {
+  margin: 0 0 10px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.is-fail .tag { color: var(--pink); }
+.is-ok .tag { color: var(--green); }
+
+.big { font-size: 34px; margin: 0; }
+.subtitle { font-family: var(--serif); font-size: 22px; margin: 2px 0 12px; }
+.note { font-family: var(--serif); font-style: italic; color: var(--muted); margin: 0 0 20px; }
+
+.badge { cursor: default; color: #fff; }
+.is-fail .badge { background: var(--pink); }
+.is-ok .badge { background: var(--green); }
+
+.signature {
+  margin: 22px 0 0;
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ---------- Confeti ---------- */
+.confetti {
+  position: fixed;
+  top: -10px;
+  width: 8px; height: 12px;
+  border-radius: 2px;
+  pointer-events: none;
+  animation: fall linear forwards;
+}
+@keyframes fall {
+  to { transform: translateY(110vh) rotate(720deg); opacity: 0.8; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card.enter, .card.leave, .confetti { animation: none; }
+}
