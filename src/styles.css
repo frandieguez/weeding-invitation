@@ -225,14 +225,24 @@ h1, h2 {
 
 /* ---------- Móvil ---------- */
 @media (max-width: 480px) {
-  .top { padding-top: 24px; }
-  .brand { font-size: 11px; letter-spacing: 0.28em; }
-  .couple { font-size: 28px; margin-bottom: 14px; }
-  #stage { padding: 24px 12px 48px; place-items: start center; }
-  .card { padding: 24px 18px 26px; }
-  h1, h2 { font-size: 24px; }
-  .big { font-size: 30px; }
-  .option { font-size: 14px; padding: 14px; }
+  .top { padding-top: 28px; }
+  .brand { font-size: 12px; letter-spacing: 0.28em; }
+  .couple { font-size: 38px; margin-bottom: 16px; }
+  .labels { font-size: 11px; letter-spacing: 0.14em; }
+  #stage { padding: 24px 14px 48px; place-items: start center; }
+  .card { padding: 28px 20px 30px; border-radius: 18px; }
+  .icon { width: 36px; height: 36px; font-size: 16px; }
+  .eyebrow { font-size: 11px; margin-bottom: 10px; }
+  h1, h2 { font-size: 30px; margin-bottom: 22px; }
+  .btn { font-size: 14px; padding: 14px 24px; letter-spacing: 0.08em; white-space: nowrap; }
+  .options { gap: 10px; }
+  .option { font-size: 17px; padding: 16px; border-radius: 10px; }
+  .icon.round { width: 48px; height: 48px; font-size: 20px; }
+  .tag { font-size: 13px; }
+  .big { font-size: 38px; }
+  .subtitle { font-size: 25px; }
+  .note { font-size: 19px; }
+  .signature { font-size: 11px; }
   .verdict .actions { flex-direction: column; }
   .verdict .actions .btn { width: 100%; }
 }
