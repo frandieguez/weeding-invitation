@@ -1,7 +1,7 @@
-export default function Header({ couple, left, right }) {
+export default function Header({ brand, couple, left, right }) {
   return (
     <header className="top">
-      <p className="brand">Una pequeña invitación</p>
+      <p className="brand">{brand}</p>
       <p className="couple">{couple}</p>
       <div className="labels">
         <span>{left}</span>

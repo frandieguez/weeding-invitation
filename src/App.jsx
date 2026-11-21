@@ -27,19 +27,19 @@ export default function App() {
 
   let labels, card;
   if (step === -1) {
-    labels = ["RSVP", invitation.labels.honest];
+    labels = [invitation.labels.rsvp, invitation.labels.honest];
     card = <Intro config={invitation.intro} details={invitation} onYes={() => setStep(0)} />;
   } else if (step < total) {
-    labels = [`Pregunta ${step + 1}/${total}`, invitation.labels.honest];
+    labels = [invitation.labels.question(step + 1, total), invitation.labels.honest];
     card = <Question question={invitation.questions[step]} onAnswer={answer} />;
   } else {
-    labels = ["El veredicto", "Respuesta final"];
+    labels = [invitation.labels.verdict, invitation.labels.final];
     card = <Verdict answers={answers} config={invitation} onRestart={restart} />;
   }
 
   return (
     <>
-      <Header couple={invitation.couple} left={labels[0]} right={labels[1]} />
+      <Header brand={invitation.brand} couple={invitation.couple} left={labels[0]} right={labels[1]} />
       <main id="stage">
         {/* key fuerza el remontaje para relanzar la animación de entrada */}
         <div key={step} className="card-wrap">
