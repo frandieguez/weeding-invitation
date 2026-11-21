@@ -22,10 +22,14 @@ body {
   background: var(--bg);
   color: var(--ink);
   font-family: var(--sans);
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-x: hidden;
 }
 
 /* ---------- Cabecera ---------- */
@@ -59,7 +63,6 @@ body {
   place-items: center;
   padding: 40px 16px 80px;
 }
-#stage > * { grid-area: 1 / 1; }
 
 .card {
   position: relative;
@@ -70,10 +73,9 @@ body {
   text-align: center;
   box-shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 20px 50px -20px rgb(60 40 30 / 0.25);
 }
-.card.enter { animation: enter 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
-.card.leave { animation: leave 0.25s ease both; }
+.card-wrap { width: 100%; display: grid; place-items: center; }
+.card { animation: enter 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
 @keyframes enter { from { opacity: 0; transform: translateY(14px) scale(0.98); } }
-@keyframes leave { to { opacity: 0; transform: translateY(-10px) scale(0.98); } }
 
 .icon {
   width: 30px; height: 30px;
@@ -192,5 +194,5 @@ h1, h2 {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .card.enter, .card.leave, .confetti { animation: none; }
+  .card, .confetti { animation: none; }
 }

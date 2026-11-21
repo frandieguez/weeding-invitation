@@ -1,6 +1,6 @@
 // Edita aquí textos, preguntas y qué respuestas "suspenden".
 // Una opción con `fail` hace que la invitada quede desinvitada al final.
-window.INVITATION = {
+export const invitation = {
   intro: {
     eyebrow: "Reserva la fecha",
     question: "¿Quieres venir a mi boda? 💍",
